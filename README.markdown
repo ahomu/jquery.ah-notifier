@@ -21,9 +21,9 @@ MacのGrowlライクなnotificationを表示するjQueryプラグインです。
                 right   : 10,
                 top     : 10
             },
-            interval    : 600,       // ユニットの表示間隔             [int(ms)]
+            interval    : 1000,      // ユニットの表示間隔             [int(ms)]
             duration    : 5000,      // 表示されてからdestroyされるまで [int(ms)]
-            effectSpeed : 'normal'   // 各種エフェクトの速度           [int(ms)|fast|slow|normal]
+            effectSpeed : 600        // 各種エフェクトの速度           [int(ms)]
         });
     });
     </script>
@@ -36,8 +36,7 @@ MacのGrowlライクなnotificationを表示するjQueryプラグインです。
 
         padding: 15px;
         color: #ffffff;
-        background-color: rgb(33, 33, 33);
-        background-color: rgba(0, 0, 0, 0.66);
+        background-color: #000000;
         text-align: center;
 
         -moz-border-radius: 7px;
@@ -47,10 +46,10 @@ MacのGrowlライクなnotificationを表示するjQueryプラグインです。
     </style>
 
     <ul id="jq-post_message" style="display:none;">
-        <li>?????1</li>
-        <li>?????2<br />??????</li>
-        <li>?????3</li>
-        <li>?????4</li>
+        <li>メッセージ1</li>
+        <li>メッセージ2<br />そして改行</li>
+        <li>メッセージ3</li>
+        <li>メッセージ4</li>
     </ul>
 
 ##クレジット - Credit
