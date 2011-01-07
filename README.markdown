@@ -6,6 +6,8 @@ MacのGrowlライクなnotificationを表示するjQueryプラグインです。
 
 ##使い方 - Usage
 
+※時間パラメーターは調整できますが、(interval - effectspeed) >= 300 でないと、ちょっとおかしくなるのは現バージョンの仕様です ;-)
+
 サンプルコード:
 
     <script src="./js/jquery.ah-notifier.js" type="text/javascript" charset="utf-8"></script>

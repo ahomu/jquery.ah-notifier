@@ -21,9 +21,9 @@ $.fn.ahNotifier = function(options)
                 right   : 10,
                 top     : 10
             },
-            interval    : 600,       // ユニットの表示間隔             [int(ms)]
+            interval    : 1000,      // ユニットの表示間隔             [int(ms)]
             duration    : 5000,      // 表示されてからdestroyされるまで [int(ms)]
-            effectSpeed : 'normal'   // 各種エフェクトの速度           [int(ms)|fast|slow|normal]
+            effectSpeed : 600        // 各種エフェクトの速度           [int(ms)]
         },
         settings = $.extend({}, defaults, options),
         units    = [],
@@ -32,8 +32,7 @@ $.fn.ahNotifier = function(options)
         $wrapper = $('<div class="jq-post_message-wrapper" />').css($.extend({
             position: 'absolute',
             overflow: 'hidden',
-            width   : settings.width,
-            height  : '100%'
+            width   : settings.width
         }, settings.initPosition));
 
     // method
@@ -70,9 +69,11 @@ $.fn.ahNotifier = function(options)
         },
         create  = function(html)
         {
-            return $('<div class="jq-post_message-unit" />').css({
+            var $unit = $('<div class="jq-post_message-unit" />').css({
                 position: 'absolute'
-            }).appendTo($wrapper).hide().html(html).fadeTo(0, 0.001).get(0);
+            }).appendTo($wrapper).hide().html(html).fadeTo(0, 0.001);
+
+            return $unit.get(0);
         },
         display = function($unit)
         {
@@ -80,7 +81,7 @@ $.fn.ahNotifier = function(options)
             $unit.fadeTo(settings.effectSpeed, 1);
 
             // increment wrapper height (:disabled)
-            //$wrapper.height($wrapper.height() + $unit.outerHeight() + settings.margin);
+            $wrapper.height($wrapper.height() + $unit.outerHeight() + settings.margin);
 
             // suicide click
             $unit.click(function()
@@ -100,7 +101,7 @@ $.fn.ahNotifier = function(options)
             $unit.fadeOut(settings.effectSpeed, function()
             {
                 $unit.remove();
-                adjust(settings.effectSpeed);
+                adjust(300);
             });
         },
         adjust  = function(speed)
