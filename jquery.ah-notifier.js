@@ -15,15 +15,15 @@ $.fn.ahNotifier = function(options)
 {
     // property
     var defaults = {
-            width       : 200,       // ???????(?padding&margin) [int(px)]
-            margin      : 20,        // ??????????              [int(px)]
-            initPosition: {          // ????????????           [object(prop:int(px))]
+            width       : 200,       // 全体の最大幅(含padding&margin) [int(px)]
+            margin      : 20,        // ユニット間の距離               [int(px)]
+            initPosition: {          // 表示の開始位置                [object(prop:int(px))]
                 right   : 10,
                 top     : 10
             },
-            interval    : 600,       // ?????????????????   [int(ms)]
-            duration    : 5000,      // ??????destroy???????? [int(ms)]
-            effectSpeed : 'normal'   // ??????????              [int(ms)|fast|slow|normal]
+            interval    : 600,       // ユニットの表示間隔             [int(ms)]
+            duration    : 5000,      // 表示されてからdestroyされるまで [int(ms)]
+            effectSpeed : 'normal'   // 各種エフェクトの速度           [int(ms)|fast|slow|normal]
         },
         settings = $.extend({}, defaults, options),
         units    = [],
